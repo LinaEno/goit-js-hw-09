@@ -39,10 +39,10 @@ const options = {
 
           const { days, hours, minutes, seconds } = convertMs(timeLeft);
 
-          refs.dataDays.innerHTML = days < 10 ? addLeadingZero(days) : days;
-          refs.dataHours.innerHTML = hours < 10 ? addLeadingZero(hours) : hours;
-          refs.dataMinutes.innerHTML = minutes < 10 ? addLeadingZero(minutes) : minutes;
-          refs.dataSeconds.innerHTML = seconds < 10 ? addLeadingZero(seconds) : seconds;
+          refs.dataDays.innerHTML = days < 10 ? pad(days) : days;
+          refs.dataHours.innerHTML = hours < 10 ? pad(hours) : hours;
+          refs.dataMinutes.innerHTML = minutes < 10 ? pad(minutes) : minutes;
+          refs.dataSeconds.innerHTML = seconds < 10 ? pad(seconds) : seconds;
 
           if (timeLeft < 1000) {
             clearInterval(timer);
@@ -52,9 +52,8 @@ const options = {
       }
 
 
-      function addLeadingZero(value) {
-        const stringValue = String(value);
-        return stringValue.padStart(2, '0');
+      function pad(value) {
+        return String(value).padStart(2, '0');
       }
       
       function convertMs(ms) {
