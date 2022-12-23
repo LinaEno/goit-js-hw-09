@@ -16,3 +16,24 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+}
+
+.value, .label {
+  display: block;
+}
+
+.value {
+  font-size: 34px;
+  text-align: center;
+  margin: 10px 15px;
+  color: blue;
+}
+
+.label {
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+}
