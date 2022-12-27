@@ -44,13 +44,16 @@ const options = {
           refs.dataMinutes.innerHTML = minutes < 10 ? pad(minutes) : minutes;
           refs.dataSeconds.innerHTML = seconds < 10 ? pad(seconds) : seconds;
 
-          if (timeLeft < 1000) {
+          if (timeLeft <= 0) {
             clearInterval(timer);
-            startBtn.disabled = false;
+            refs.startBtn.disabled = false;
+            refs.dataDays.innerHTML = '00';
+            refs.dataHours.innerHTML = '00';
+            refs.dataMinutes.innerHTML = '00';
+            refs.dataSeconds.innerHTML = '00';
           }
         }, 1000);
       }
-
 
       function pad(value) {
         return String(value).padStart(2, '0');
@@ -74,3 +77,4 @@ const options = {
 };
 
 flatpickr(refs.input, options);
+
